@@ -34,8 +34,8 @@ def explorarCueva(cuevaElegida):
     else: 
         print('¡Te engulle de un bocado!') 
  
-jugarDeNuevo = 'sí' 
-while jugarDeNuevo == 'sí' or jugarDeNuevo == 's': 
+jugarDeNuevo = 'si' 
+while jugarDeNuevo == 'si' or jugarDeNuevo == 's': 
  
     mostrarIntroducción() 
  
