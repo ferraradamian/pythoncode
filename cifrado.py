@@ -4,12 +4,12 @@ TAM_MAX_CLAVE = 26
 
 def obtenerModo():
     while True:
-        print('¿Deseas encriptar o desencriptar un mensaje?')
+        print('¿Deseas encriptar, desencriptar o descifrar por fuerza bruta un mensaje?')
         modo = input().lower()
-        if modo in 'encriptar e desencriptar d'.split():
+        if modo in 'encriptar e desencriptar d bruta b'.split():
             return modo
         else:
-            print('Ingresa "encriptar" o "e" o "desencriptar" o "d"')
+            print('Ingresa "encriptar" o "e" o "desencriptar" o "d" o "bruta" o "b".')
 
 def obtenerMensaje():
     print('Ingresa tu mensaje:')
@@ -51,8 +51,12 @@ def obtenerMensajeTraducido(modo, mensaje, clave):
 
 modo = obtenerModo()
 mensaje = obtenerMensaje()
-clave = obtenerClave()
+if modo[0] != 'b': 
+    clave = obtenerClave()
 
 print('Tu texto traducido es:')
-print(obtenerMensajeTraducido(modo, mensaje, clave))
-                                                    
+if modo[0] != 'b':
+    print(obtenerMensajeTraducido(modo, mensaje, clave))
+else: 
+    for clave in range(1, TAM_MAX_CLAVE + 1): 
+        print(clave, obtenerMensajeTraducido('desencriptar', mensaje, clave))                                                        
